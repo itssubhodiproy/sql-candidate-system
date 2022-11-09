@@ -5,29 +5,91 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>List</title>
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body>
-    <h1>My List</h1>
-    <form action="" method="post">
-      <div>
-        <label for="name"> Name: </label>
-        <input type="text" name="name" id="name" />
+  <body class="bg-gray-900 grid-col">
+    <div class="flex justify-between items-center m-10">
+      <div class="text-white text-5xl font-semibold">All Users</div>
+      <div class="space-x-3">
+        <button
+          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+          onclick="location.href='/form'"
+          >
+          Add New
+        </button>
+        <button
+          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+          onclick="location.href='/sortByName'"
+        >
+          Sort By Name
+        </button>
+        <button
+          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+          onclick="location.href='/sortByDate'"
+          >
+          Sort By Age
+        </button>
+        
       </div>
-      <div>
-        <label for="Date of Birth"> Date of Birth: </label>
-        <input type="date" name="dateOfBirth" id="dateOfBirth" />
-      </div>
-      <div>
-        <label for="Country">Country: </label>
-        <input type="text" name="country" id="country" />
-      </div>
-      <div>
-        <label for="resume">Resume: </label>
-        <input type="file" name="resume" id="resume" />
-      </div>
-      <div>
-        <button type="submit">Submit</button>
-      </div>
-    </form>
+    </div>
+
+    <div class="overflow-x-auto relative shadow-md sm:rounded-lg m-10">
+      <% if(allUser.length==0) {%> 
+      <div class="text-white text-2xl font-semibold text-center">No User Found</div>
+      <% } %>
+      <% if(allUser.length!=0) {%> 
+      <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead
+          class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+        >
+          <tr>
+            <th scope="col" class="py-3 px-6">User name</th>
+            <th scope="col" class="py-3 px-6">Country</th>
+            <th scope="col" class="py-3 px-6">Date-Of-Birth</th>
+            <th scope="col" class="py-3 px-6">View</th>
+            <th scope="col" class="py-3 px-6">Download</th>
+            <th scope="col" class="py-3 px-6">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% allUser.forEach((user) => { %>
+          <tr
+            class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+          >
+            <th
+              scope="row"
+              class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+            >
+              <%= user.name %>
+            </th>
+            <td class="py-4 px-6"><%= user.country %></td>
+            <td class="py-4 px-6"><%= user.dateOfBirth.toLocaleDateString() %></td>
+            <td class="py-4 px-6">
+              <a
+                href="/viewfile/<%= user.user_id %>"
+                class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                >View Resume</a
+              >
+            </td>
+            <td class="py-4 px-6">
+              <a
+                href="/download/<%= user.user_id %>"
+                class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                >Download Resume</a
+              >
+            </td>
+            <td class="py-4 px-6">
+              <a
+                href="/delete/<%= user.user_id %>"
+                class="font-medium text-red-600 dark:text-red-500 hover:underline"
+                >Delete</a
+              >
+            </td>
+          </tr>
+          <% })%>
+        </tbody>
+      </table>
+      <% } %>
+    </div>
   </body>
 </html>

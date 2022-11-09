@@ -1,10 +1,11 @@
+// require('dotenv').config();
+
 module.exports = {
-    HOST: "sql12.freemysqlhosting.net",
+    HOST: process.env.HOST,
     USER: "sql12552476",
-    PASSWORD: "HHKPlyPz43",
-    DB: "sql12552476",
+    PASSWORD: process.env.PASSWORD,
+    DB: process.env.DB,
     dialect: "mysql",
-    // PORT: 3306,
     pool: {
       max: 5,
       min: 0,

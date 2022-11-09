@@ -10,7 +10,7 @@ module.exports = (sequelize, Sequelize) => {
     country: { type: Sequelize.STRING, allowNull: false },
     dateOfBirth: { type: Sequelize.DATE, allowNull: false },
     // Column-5, resume
-    // resume: { type: Sequelize.STRING, allowNull: false },
+    resume: { type: Sequelize.STRING, allowNull: false },
   });
   return User;
 };

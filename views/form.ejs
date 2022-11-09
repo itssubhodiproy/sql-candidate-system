@@ -53,7 +53,13 @@
             placeholder="India"
             required="true"
             name="country"
+            list="listid"
           />
+          <datalist id="listid">
+            <% for(let i=0;i<allCountry.length;i++)  {%>
+            <option value="<%= allCountry[i] %>"></option>
+            <% } %> 
+          </datalist>
         </div>
         <div class="mb-6">
           <label

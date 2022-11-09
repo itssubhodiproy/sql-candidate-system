@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="m-10 bg-gray-900">
+    <h1 class="text-5xl m-10 text-white font-semibold">Enter Details</h1>
+
+    <form action="/form" method="post">
+      <div class="mb-6">
+        <label
+          for="name"
+          class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+          >Name</label
+        >
+        <input
+          type="text"
+          id="name"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          placeholder="Subhodip Roy"
+          required="true"
+          name="name"
+        />
+      </div>
+      <div class="mb-6">
+        <label
+          for="country"
+          class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+          >Country</label
+        >
+        <input
+          type="text"
+          id="country"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          placeholder="India"
+          required="true"
+          name="country"
+        />
+      </div>
+      <div class="mb-6">
+        <label
+          for="dateOfBirth"
+          class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+          >Date of Birth</label
+        >
+        <input
+          type="date"
+          name="dateOfBirth"
+          id="dateOfBirth"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          required="true"
+        />
+      </div>
+      <div class="mb-6">
+        <label class="block">
+          <span class="sr-only">Upload Resume</span>
+          <input
+            type="file"
+            class="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-100"
+            name="resume"
+            required
+          />
+        </label>
+      </div>
+      <button
+        type="submit"
+        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+      >
+        Submit
+      </button>
+    </form>
+  </body>
+</html>

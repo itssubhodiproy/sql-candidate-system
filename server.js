@@ -94,7 +94,7 @@ app.get("/delete/:id", async (req, res) => {
   const id = req.params.id;
   const user = await User.findByPk(id);
   const fileName = user.resume;
-  await fs.unlinkSync("/Resumes/" + fileName);
+  await fs.unlinkSync("./Resumes/" + fileName);
   await User.destroy({
     where: { user_id: id },
   });
